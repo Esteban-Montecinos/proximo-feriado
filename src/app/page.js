@@ -7,12 +7,8 @@ async function getFeriados() {
   return feriados;
 }
 function diferenciaEnDias(fechaInicio, fechaFin) {
-  const msDiff = Math.abs(fechaFin - fechaInicio);
-
-  const unDiaEnMilisegundos = 24 * 60 * 60 * 1000;
-  const diferenciaDias = Math.floor(msDiff / unDiaEnMilisegundos);
-
-  return diferenciaDias;
+  const unDia = 24 * 60 * 60 * 1000;
+  return Math.round(Math.abs((fechaInicio - fechaFin) / unDia));
 }
 const feriados = await getFeriados();
 const hoy = new Date();
@@ -43,11 +39,12 @@ export default function Home() {
         <span class="sm:text-xl text-sm text-center text-salte-950">
           {fechaProximoFeriado.toLocaleDateString('es-cl', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }.
         </span>
-        <span class="smtext-3xl text-xl text-salte-950">
+        <span class="text-xl text-salte-950">
           Tipo de feriado: {proximoFeriado.tipo}{proximoFeriado.irrenunciable == 1? ', irrenunciable.':'.'}
         </span>
       </section>
       <Pala />
+      <span className="text-xs">Hecho con ❤ por <a href="https://www.instagram.com/estebannmontecinos/?theme=dark" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline ">Esteban Montecinos</a></span>
     </main>
   );
 }
