@@ -6,8 +6,7 @@ async function getFeriados() {
   ).then((res) => res.json());
   return feriados;
 }
-function diferenciaEnDias(fechaInicio, fecha2) {
-  const fechaFin = new Date(fecha2);
+function diferenciaEnDias(fechaInicio, fechaFin) {
   const msDiff = Math.abs(fechaFin - fechaInicio);
 
   const unDiaEnMilisegundos = 24 * 60 * 60 * 1000;
@@ -27,7 +26,9 @@ const proximoFeriado = feriados.find(
     new Date(feriados[0].fecha).getDate + 1
   ),
 };
-const diferencia = diferenciaEnDias(hoy, proximoFeriado.fecha);
+const proxFechaSplit = proximoFeriado.fecha.split('-')
+const fechaProximoFeriado = new Date(proxFechaSplit[0],(proxFechaSplit[1] - 1),proxFechaSplit[2])
+const diferencia = diferenciaEnDias(hoy, fechaProximoFeriado);
 const rtf = new Intl.RelativeTimeFormat("es-CL", { numeric: "auto" });
 export default function Home() {
   return (
@@ -38,6 +39,9 @@ export default function Home() {
         </span>
         <span class="sm:text-7xl text-4xl text-center text-salte-950">
           {proximoFeriado.nombre + " " + rtf.format(diferencia, "day")}.
+        </span>
+        <span class="sm:text-xl text-4xl text-center text-salte-950">
+          {fechaProximoFeriado.toLocaleDateString('es-cl', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }.
         </span>
         <span class="smtext-3xl text-xl text-salte-950">
           Tipo de feriado: {proximoFeriado.tipo}{proximoFeriado.irrenunciable == 1? ', irrenunciable.':'.'}
