@@ -31,15 +31,15 @@ const diferencia = diferenciaEnDias(hoy, proximoFeriado.fecha);
 const rtf = new Intl.RelativeTimeFormat("es-CL", { numeric: "auto" });
 export default function Home() {
   return (
-    <main className="flex min-h-screen max-w-7xl m-auto flex-col gap-4 items-center p-24">
-      <section class="font-extrabold flex flex-col justify-center items-center">
-        <span class="mb-4 bg-clip-text text-xl text-transparent bg-gradient-to-r from-sky-500 to-emerald-500 to-90%">
+    <main className="flex min-h-screen max-w-6xl m-auto flex-col gap-4 items-center p-4">
+      <section class="font-extrabold flex flex-col justify-center items-center w-full">
+        <span class="mb-4 bg-clip-text sm:text-xl text-sm text-transparent bg-gradient-to-r from-sky-500 to-emerald-500 to-90%">
           Cuenta atrás para soltar la pala,
         </span>
-        <span class="text-7xl text-center text-salte-950">
+        <span class="sm:text-7xl text-4xl text-center text-salte-950">
           {proximoFeriado.nombre + " " + rtf.format(diferencia, "day")}.
         </span>
-        <span class="text-3xl text-salte-950">
+        <span class="smtext-3xl text-xl text-salte-950">
           Tipo de feriado: {proximoFeriado.tipo}{proximoFeriado.irrenunciable == 1? ', irrenunciable.':'.'}
         </span>
       </section>
