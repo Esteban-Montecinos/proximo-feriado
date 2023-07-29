@@ -40,7 +40,7 @@ export default function Home() {
         <span class="sm:text-7xl text-4xl text-center text-salte-950">
           {proximoFeriado.nombre + " " + rtf.format(diferencia, "day")}.
         </span>
-        <span class="sm:text-xl text-4xl text-center text-salte-950">
+        <span class="sm:text-xl text-sm text-center text-salte-950">
           {fechaProximoFeriado.toLocaleDateString('es-cl', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) }.
         </span>
         <span class="smtext-3xl text-xl text-salte-950">
