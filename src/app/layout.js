@@ -1,7 +1,7 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const poppins = Poppins({weight: ['400', '700'], subsets: ['latin'] })
 
 export const metadata = {
   title: 'Próximo feriado',
@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gradient-to-t from-slate-400 via-30% via-slate-500 to-75% to-slate-900`}>{children}</body>
+      <body className={`${poppins.className} bg-blue-50`}>{children}</body>
     </html>
   )
 }

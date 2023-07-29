@@ -32,17 +32,17 @@ const rtf = new Intl.RelativeTimeFormat("es-CL", { numeric: "auto" });
 export default function Home() {
   return (
     <main className="flex min-h-screen max-w-7xl m-auto flex-col gap-4 items-center p-24">
-      <div class="text-4xl font-extrabold flex flex-col justify-center items-center">
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-emerald-500 to-90%">
+      <section class="font-extrabold flex flex-col justify-center items-center">
+        <span class="mb-4 bg-clip-text text-xl text-transparent bg-gradient-to-r from-sky-500 to-emerald-500 to-90%">
           Cuenta atrás para soltar la pala,
         </span>
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-emerald-500 to-90%">
+        <span class="text-7xl text-center text-salte-950">
           {proximoFeriado.nombre + " " + rtf.format(diferencia, "day")}.
         </span>
-        <span class="bg-clip-text text-3xl text-transparent bg-gradient-to-r from-sky-500 to-emerald-500 to-90%">
-          Tipo de feriado: {proximoFeriado.tipo}.
+        <span class="text-3xl text-salte-950">
+          Tipo de feriado: {proximoFeriado.tipo}{proximoFeriado.irrenunciable == 1? ', irrenunciable.':'.'}
         </span>
-      </div>
+      </section>
       <Pala />
     </main>
   );
