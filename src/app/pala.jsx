@@ -15,7 +15,7 @@ export default function Pala() {
             x="0px"
             y="0px"
             viewBox="0 0 100 100"
-            enable-background="new 0 0 0 0"
+            enableBackground="new 0 0 0 0"
             className="animate-spin h-5 w-5 mr-3"
           >
             <path
