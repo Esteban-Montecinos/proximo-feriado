@@ -1,7 +1,4 @@
-function diferenciaEnDias(fechaInicio, fechaFin) {
-  const unDia = 24 * 60 * 60 * 1000;
-  return Math.round(Math.abs((fechaInicio - fechaFin) / unDia));
-}
+
 
 export const getProximoFeriado = (feriados) => {
   const hoy = new Date();
@@ -21,6 +18,5 @@ export const getProximoFeriado = (feriados) => {
     Number(proxFechaSplit[1]) - 1,
     Number(proxFechaSplit[2]) 
   );
-  const diferencia = diferenciaEnDias(hoy, fechaProximoFeriado);
-  return { diferencia, proximoFeriado, fechaProximoFeriado };
+  return { proximoFeriado, fechaProximoFeriado };
 };
