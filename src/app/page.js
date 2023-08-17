@@ -3,7 +3,7 @@ import Pala from "./pala";
 
 async function getFeriados() {
   const feriados = await fetch(
-    "https://apis.digital.gob.cl/fl/feriados/2023"
+    "https://apis.digital.gob.cl/fl/feriados/2023", { cache: 'force-cache' }
   ).then((res) => res.json());
   return feriados;
 }
