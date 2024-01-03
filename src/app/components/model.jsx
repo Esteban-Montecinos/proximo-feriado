@@ -7,7 +7,7 @@ export default function ModeloPala() {
   return (
     <div className="flex w-full h-[55vh]">
         <Canvas dpr={[1, 2]} camera={{ position: [-4, 15, -20], fov: 5 }}>
-          <OrbitControls/>
+          <OrbitControls enableZoom={false}/>
           <directionalLight position={[1, 2, 2]} intensity={2.5} />
           <ambientLight intensity={5.5} />
           <Rotate position-y={1} scale={2}>
